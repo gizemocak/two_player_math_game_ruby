@@ -33,19 +33,34 @@ class Game
   def play_turn
     @turn += 1
     player = @players[@turn % 2]
+    p1 = @players[0]
+    p2 = @players[1]
     #create a random question for each turn
     question = self.create_random_question
 
     #player answer
     player_answer = gets.chomp
     #check player answer
-    if player_answer === current_question[:answer].to_s
-      puts "right"
+    #if answer is wrong loose a life
+    if player_answer !== current_question[:answer].to_s
+      #call loose a life method
+      player.loose_a_life
+      if player = p1
+        puts "Player 1: Seriouly? No!"
+      elsif player = p2
+        puts "Player 2: Seriouly? No!"
+      end
+      
     else 
-      puts "wrong"
+      #if answer is right 
+      if player = p1
+        puts "Player 1: Yes! You are correct"
+      elsif player = p2
+        puts "Player 2: Yes! You are correct"
+      end
     end
-
     puts "P1:#{@players[0].life} vs P2:#{@players[1].life}"
+    puts "---- NEW TURN -----"
   end
 
   def game_over?
