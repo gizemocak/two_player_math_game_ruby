@@ -3,7 +3,7 @@ require './player.rb'
 require './main.rb'
 require './question.rb'
 
-puts 'welcome to the game!'
+
 
 game = Game.new
 game.run
