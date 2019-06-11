@@ -1,8 +1,10 @@
 # require 'active_support/all'
 
 class Player 
-  attr_reader :life
-  def initialize
+  attr_reader :life, :name
+  
+  def initialize(name)
+    @name = name
     @life = 3
   end
   
